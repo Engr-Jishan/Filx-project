@@ -144,7 +144,7 @@ a.logo:hover {
     cursor: pointer;
     z-index: 101;
     position: relative;
-    display: flex;
+    display: none;
     align-items: center;
 }
 
@@ -177,6 +177,10 @@ a.logo:hover {
     bottom: -10px;
 }
 
+.hamburger-menu.active .hamburger {
+    background-color: transparent;
+}
+
 .hamburger-menu.active .hamburger::before {
     transform-origin: top left;
     transform: rotate(45deg);
@@ -188,4 +192,36 @@ a.logo:hover {
     transform: bottom left;
     transform: rotate(-45deg);
     left: 6px;
+}
+
+/* Responsive */
+@media only screen and (max-width: 850px) {
+    html {
+        font-size: 12px;
+    }
+
+    .hamburger-menu {
+        display: grid;
+    }
+
+    .nav-menu {
+        /* display: none; */
+        position: absolute;
+        top: 100%;
+        left: -100%;
+        background-color: #000000;
+        flex-direction: column;
+        width: 80%;
+        height: 100vh;
+        padding: 20px;
+        transition: 0.3s ease-in-out;
+    }
+
+    .nav-menu li {
+        margin: 10px 30px;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
 }
